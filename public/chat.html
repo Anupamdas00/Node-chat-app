@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/208efe8a45.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid row g-0 h-vh">
+        <div class="user-list col-md-3 p-3" id="user-list">
+            
+        </div>
+        <div class="chat-layout col-md-9 d-flex flex-column p-3">
+            <div class="chat-text p-5" style="flex-grow: 1;" id="message-area">
+
+            </div>
+            <div class="chat-input">
+                <form class="mx-auto">
+                    <input type="text" id="inputField" class="form-control p-4" placeholder="Type Here" autofocus>
+                    <button type="submit" class="send-icon fs-1" ><i class="fa-solid fa-circle-chevron-right"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script id="chat-text-template" type="text/html">
+        <div class="msg-bubble w-75 px-3 p-1">
+            <div class="msg-info d-flex justify-content-between px-2">
+                <p class="fw-bold  text-start"> {{username}} </p>
+                <p class="text-muted   text-end"> {{time}} </p>
+            </div>
+            <div class="msg-body px-2">
+                <p class="lead"> {{message}} </p>
+            </div>
+        </div>
+    </script>
+
+    <script id="userListTemplate" type="text/html">
+        <div class="user-list-template">
+            <h4 class="text-center fw-bold"> {{room}} </h4>
+            <ul class="list-group list-group-flush">
+                {{#users}}
+                <li class="list-group-item"> {{username}} </li>
+                {{/users}}
+            </ul>
+        </div>
+    </script>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/chat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+</body>
+</html>

@@ -33,18 +33,26 @@ io.on('connection', (socket) => {
 
         const users = getRoomUsers(user.room);
         io.to(user.room).emit('roomData', { users, room : user.room })
+
+        callback()
     })
 
     socket.on('sentText', (message) => {
-        const  user  = getUser(socket.id); 
+        console.log('user socket id is', socket.id);
+        const user = getUser(socket.id); 
         io.to(user.room).emit('responseToUI',generateMsg(user.username, message));
     })
 
     socket.on('disconnect', () => {
+        console.log('triggerd disconnect');
         const user = removeUser(socket.id)
         if(user !== undefined){
-            socket.broadcast.emit('responseToUI', generateMsg(`${user.username} just left the chat`))
             io.to(user.room).emit(generateMsg(`${user.username} has left the chat`))
+            
+            const users = getRoomUsers(user.room);
+            console.log('users left in room', users);
+            io.to(user.room).emit('roomData', { users, room : user.room })
+
         }else{
             console.log('user value is undefined');
         }

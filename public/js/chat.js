@@ -27,7 +27,7 @@ socket.emit('join', { username, room }, (error) => {
 })
 
 socket.on('roomData', ({ users, room } ) => {
-    console.log(users, room);
+    console.log('after leaving user', users, room);
     const html = Mustache.render(userListTemplate, {
         users,
         room,

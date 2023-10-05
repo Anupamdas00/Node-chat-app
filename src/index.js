@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
         console.log('triggerd disconnect');
         const user = removeUser(socket.id)
         if(user !== undefined){
-            io.to(user.room).emit(generateMsg(`${user.username} has left the chat`))
+            io.to(user.room).emit('responseToUI', generateMsg(`${user.username} has left the chat`))
             
             const users = getRoomUsers(user.room);
             console.log('users left in room', users);

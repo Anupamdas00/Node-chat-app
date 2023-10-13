@@ -70,3 +70,8 @@
 .chat-input form{
   max-width: 80%;
 }
+
+img{
+  width: 50px;
+  height: 50px;
+}

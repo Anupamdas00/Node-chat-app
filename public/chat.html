@@ -30,7 +30,7 @@
         <div class="msg-bubble w-75 px-3 p-1">
             <div class="msg-info d-flex justify-content-between px-2">
                 <p class="fw-bold  text-start"> {{username}} </p>
-                <p class="text-muted   text-end"> {{time}} </p>
+                <p class="text-muted  text-end"> {{time}} </p>
             </div>
             <div class="msg-body px-2">
                 <p class="lead"> {{message}} </p>
@@ -43,7 +43,12 @@
             <h4 class="text-center fw-bold"> {{room}} </h4>
             <ul class="list-group list-group-flush">
                 {{#users}}
-                <li class="list-group-item"> {{username}} </li>
+                <li class="list-group-item d-flex justify-content-start px-4 my-1"> 
+                    <div class="image">
+                        <img src="./images/profile.jpg" alt="" width="10px" height="10px" >
+                    </div>
+                    <p class="fs-3 text-end my-auto ms-3">{{username}}  </p>
+                </li>
                 {{/users}}
             </ul>
         </div>
